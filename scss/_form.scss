@@ -1,0 +1,95 @@
+.form{
+    &-group{
+        &:not(:last-child){
+            margin-bottom: 2rem;
+        }
+
+    &__radio{
+        display: inline-block;
+        width: 49%;
+    }
+    }
+    &-input{
+        padding: 1.5rem 2rem;
+        font-size: 1.6rem;
+        border: none;
+        background-color: rgba(white, 0.4);
+        display: block;
+        border-bottom: 3px solid transparent;
+        width: 90%;
+        font-family: inherit;
+        color: inherit;
+
+        &:focus{
+            outline: none;
+            box-shadow: 0 .5rem .5rem rgba(black, .3);
+            border-bottom: 3px solid $light-green;
+        }
+
+        &:focus:invalid{
+            border-bottom: 3px solid $dark-orange;
+        }
+
+        &::-webkit-input-placeholder{
+             color:$grey;
+
+        }
+    }
+    &-label{
+        margin-left: 2rem;
+        margin-top: .7rem;
+        font-size: 1.2rem;
+        display: block;
+        opacity: 1;
+        transition: transform 0.5s;
+    }
+
+    &-input:placeholder-shown + &-label{
+        opacity: 0;
+        visibility: hidden;
+        transform:  translateY(-.7rem);
+    }
+
+    &-radio{
+        visibility: hidden;
+       display: inline-block;
+
+        &__button{
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            padding: 1rem;
+            border: 5px solid $light-green;//
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            &::after{
+                content: "";
+                height: 1rem;
+                width: 1rem;
+                background-color: $light-green;
+                border-radius: 50%;
+                display: block;
+                position: absolute;
+                top:50%;
+                left:50%;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+            }
+        }
+        &__label{
+            font-size: 1.6rem;
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            padding-left: 4rem;
+
+        }       
+    }
+
+    &-radio:checked ~ &-radio__label &-radio__button::after{
+        opacity: 1;
+    }
+}

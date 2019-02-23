@@ -1,0 +1,18 @@
+{
+  "name": "anime",
+  "version": "1.0.0",
+  "description": "Anime.js package and scss",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass -w scss/ -o dist/css/ --recursive",
+    "css-compile": "node-sass --output dist/css scss/main.scss",
+    "css-watch": "npm run css-compile && npm run css-compile -- -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "animejs": "^3.0.1",
+    "node-sass": "^4.11.0"
+  }
+}
